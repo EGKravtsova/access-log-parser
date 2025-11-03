@@ -4,9 +4,26 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Введите текст и нажмите <Enter>:");
-        String text = new Scanner(System.in).nextLine();
-        System.out.println("Длина текста: " + text.length());
+        int summa;
+        int raznost;
+        int proizved;
+        double chastnoe;
+
+        System.out.println("Введите первое число:");
+        int first_number = new Scanner(System.in).nextInt();
+        System.out.println("Введите второе число:");
+        int second_number = new Scanner(System.in).nextInt();
+
+        summa = first_number + second_number;
+        raznost = first_number - second_number;
+        proizved = first_number * second_number;
+        chastnoe = (double)first_number / second_number;
+
+        System.out.println("summa = " + summa);
+        System.out.println("raznost = " + raznost);
+        System.out.println("proizved = " + proizved);
+        System.out.println("chastnoe = " + chastnoe);
+
 
     }
 }
