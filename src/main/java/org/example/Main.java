@@ -19,10 +19,10 @@ public class Main {
         proizved = first_number * second_number;
         chastnoe = (double)first_number / second_number;
 
-        System.out.println("summa = " + summa);
-        System.out.println("raznost = " + raznost);
-        System.out.println("proizved = " + proizved);
-        System.out.println("chastnoe = " + chastnoe);
+        System.out.println("Сумма = " + summa);
+        System.out.println("Разность = " + raznost);
+        System.out.println("Произведение = " + proizved);
+        System.out.println("Частное = " + chastnoe);
 
 
     }
