@@ -1,29 +1,35 @@
 package org.example;
 
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        int summa;
-        int raznost;
-        int proizved;
-        double chastnoe;
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        int correctFilesCount = 0; // Счетчик корректных файлов
 
-        System.out.println("Введите первое число:");
-        int first_number = new Scanner(System.in).nextInt();
-        System.out.println("Введите второе число:");
-        int second_number = new Scanner(System.in).nextInt();
+        while (true) {
+            System.out.print("Введите путь к файлу: ");
+            String filePath = scanner.nextLine();
 
-        summa = first_number + second_number;
-        raznost = first_number - second_number;
-        proizved = first_number * second_number;
-        chastnoe = (double)first_number / second_number;
+            File file = new File(filePath);
+            boolean fileExists = file.exists(); // Проверяем существование файла
+            boolean isFile = file.isFile();     // Проверяем, является ли путь файлом
 
-        System.out.println("Сумма = " + summa);
-        System.out.println("Разность = " + raznost);
-        System.out.println("Произведение = " + proizved);
-        System.out.println("Частное = " + chastnoe);
+            if (!fileExists) {
+                System.out.println("Файл не существует!");
+                continue;
+            }
 
+            if (!isFile) {
+                System.out.println("Указан путь к папке, а не к файлу!");
+                continue;
+            }
 
+            // Если дошли до этого места, значит файл существует и это действительно файл
+            correctFilesCount++;
+            System.out.println("Путь указан верно");
+            System.out.println("Это файл номер " + correctFilesCount);
+        }
     }
 }
