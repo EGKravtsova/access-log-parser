@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 public static void main(String[] args) {
     // Укажите путь к файлу access.log
-    String path = "C:/JavaProg/access.log"; 
+    String path = "C:/JavaProg/access.log";
 
     try {
         // 1. Проверяем, что файл существует и это именно файл (не директория)
