@@ -84,27 +84,29 @@ import java.util.regex.Matcher;
 //    }
 //}
 
-    public class Main {
-        public static void main(String[] args) {
-            Statistics stats = new Statistics();
+public class Main {
+    public static void main(String[] args) {
+        Statistics stats = new Statistics();
 
-            // Добавляем записи
-            stats.addEntry("/home", 200, "Windows 10");
-            stats.addEntry("/about", 200, "macOS Monterey");
-            stats.addEntry("/contact", 404, "Windows 10"); // код != 200 → страница не добавится
-            stats.addEntry("/home", 200, "Linux Ubuntu");
-            stats.addEntry("/home", 200, "Windows 10");
+        // Добавляем записи
+        stats.addEntry("/home", 200, "Windows 10", "Chrome");
+        stats.addEntry("/about", 404, "macOS", "Firefox");
+        stats.addEntry("/contact", 404, "Linux", "Chrome");
+        stats.addEntry("/blog", 200, "Windows 11", "Safari");
+        stats.addEntry("/shop", 404, "Windows 10", "Chrome");
 
-            // Получаем страницы
-            System.out.println("Страницы с кодом 200: " + stats.getAllPages());
+        // 1. Несуществующие страницы
+        System.out.println("Несуствующие страницы (404): " + stats.getNonExistingPages());
 
-            // Получаем статистику ОС
-            Map<String, Double> osStats = stats.getOsStatistics();
-            System.out.println("Статистика ОС:");
-            for (Map.Entry<String, Double> entry : osStats.entrySet()) {
-                System.out.printf("%s: %.2f%n", entry.getKey(), entry.getValue());
-            }
+        // 2. Статистика браузеров
+        Map<String, Double> browserStats = stats.getBrowserStatistics();
+        System.out.println("Статистика браузеров:");
+        for (Map.Entry<String, Double> entry : browserStats.entrySet()) {
+            System.out.printf("%s: %.2f%n", entry.getKey(), entry.getValue());
         }
     }
+}
+
+
 
 
